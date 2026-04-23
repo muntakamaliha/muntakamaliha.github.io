@@ -241,3 +241,35 @@ footer {
   height: 110%;
   object-fit: cover;
 }
+
+/* ── MOBILE RESPONSIVE FIX ── */
+@media (max-width: 768px) {
+
+  body {
+    cursor: auto; /* mobile has no cursor */
+  }
+
+  .hero-visual {
+    transform: scale(0.85);
+  }
+
+  .avatar-ring {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  .contact-hero {
+    padding: 6rem 5vw 3rem;
+  }
+
+  .ch-title {
+    font-size: 2.2rem;
+  }
+
+}
