@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools | Muntaka Maliha Rahman</title>
+  <meta name="description" content="Cybersecurity tools used by Muntaka Maliha Rahman – Kali Linux, Wireshark, Nmap, Burp Suite, Metasploit, Python, Bash, and more." />
+  <meta name="keywords" content="Muntaka Maliha Rahman tools, Kali Linux, Wireshark, Nmap, Burp Suite, Metasploit, cybersecurity tools Bangladesh" />
+  <meta name="author" content="Muntaka Maliha Rahman" /><meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* Terminal-inspired accent */
+    .terminal-bg {
+      position: fixed; bottom: 0; right: 0;
+      width: 50vw; height: 50vh;
+      background: radial-gradient(ellipse at bottom right, rgba(233,30,140,.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── CATEGORIES ── */
+    .tools-section { position: relative; z-index: 1; }
+    .tools-inner { max-width: 1120px; margin: 0 auto; padding: 0 5vw 6rem; }
+
+    .cat-label {
+      font-family: var(--mono); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 1.2rem; margin-top: 3.5rem;
+      display: flex; align-items: center; gap: .7rem;
+    }
+    .cat-label::before { content: ''; width: 24px; height: 1.5px; background: var(--coral); }
+    .cat-label:first-child { margin-top: 0; }
+
+    /* ── TOOL CARDS ── */
+    .tools-row { display: grid; gap: 1.2rem; }
+    .tools-row-3 { grid-template-columns: repeat(3,1fr); }
+    .tools-row-4 { grid-template-columns: repeat(4,1fr); }
+    .tools-row-2 { grid-template-columns: repeat(2,1fr); }
+
+    .tool-card {
+      background: var(--card); border: 1px solid var(--petal);
+      border-radius: 18px; padding: 1.8rem;
+      display: flex; flex-direction: column; gap: .8rem;
+      position: relative; overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+    /* Glow orb on hover */
+    .tool-card::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 100px; height: 100px; border-radius: 50%;
+      background: radial-gradient(circle, var(--petal) 0%, transparent 70%);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .tool-card:hover::before { opacity: 1; }
+
+    .tc-top { display: flex; align-items: center; justify-content: space-between; }
+    .tc-icon { font-size: 1.8rem; }
+    .tc-level {
+      font-family: var(--mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: .22rem .65rem; border-radius: 2rem;
+    }
+    .tc-level.adv  { background: rgba(233,30,140,.1); color: var(--deep-rose); border: 1px solid rgba(233,30,140,.2); }
+    .tc-level.prof { background: rgba(244,143,177,.15); color: var(--coral); border: 1px solid var(--petal); }
+    .tc-level.dev  { background: var(--blush); color: var(--muted); border: 1px solid var(--petal); }
+
+    .tc-name { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--ink); }
+    .tc-cat  { font-family: var(--mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--coral); }
+    .tc-desc { font-family: var(--serif); font-size: .93rem; color: var(--muted); line-height: 1.6; }
+
+    .tc-use {
+      font-family: var(--mono); font-size: .65rem; letter-spacing: .07em;
+      background: var(--blush); color: var(--muted); border-radius: .4rem;
+      padding: .3rem .6rem; display: inline-block;
+    }
+
+    /* Large feature card */
+    .tool-card.featured {
+      background: linear-gradient(140deg, var(--ink) 0%, #2d0c1e 100%);
+      border-color: rgba(244,143,177,.2);
+      grid-column: span 2;
+    }
+    .tool-card.featured .tc-name { color: #fff; }
+    .tool-card.featured .tc-desc { color: rgba(255,255,255,.55); }
+    .tool-card.featured .tc-use { background: rgba(244,143,177,.12); color: rgba(255,255,255,.6); }
+    .tool-card.featured .tc-cat { color: var(--rose); }
+
+    /* Terminal snippet */
+    .terminal {
+      background: rgba(0,0,0,.5); border: 1px solid rgba(244,143,177,.15);
+      border-radius: 10px; padding: 1rem 1.2rem; margin-top: .5rem;
+      font-family: var(--mono); font-size: .72rem; color: rgba(255,255,255,.65);
+      line-height: 1.7;
+    }
+    .terminal .prompt { color: var(--rose); }
+    .terminal .cmd { color: #fff; }
+    .terminal .out { color: rgba(255,255,255,.4); }
+
+    /* Marquee rows */
+    .marquee-section { position: relative; z-index: 1; overflow: hidden; padding: 3rem 0; background: var(--card); border-top: 1px solid var(--petal); border-bottom: 1px solid var(--petal); }
+    .marquee-track { display: flex; gap: 1rem; width: max-content; }
+    .marquee-track.fwd { animation: marquee-fwd 28s linear infinite; }
+    .marquee-track.rev { animation: marquee-rev 22s linear infinite; margin-top: .8rem; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee-fwd { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes marquee-rev { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+
+    .m-pill {
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .08em;
+      padding: .6rem 1.3rem; border-radius: 3rem; white-space: nowrap;
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--surface); border: 1.5px solid var(--petal); color: var(--muted);
+      transition: all .2s;
+    }
+    .m-pill:hover { background: var(--deep-rose); color: #fff; border-color: var(--deep-rose); transform: scale(1.05); }
+    .m-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+    .m-pill:hover .m-dot { background: rgba(255,255,255,.7); }
+
+    @media (max-width: 900px) {
+      .tools-row-3, .tools-row-4 { grid-template-columns: repeat(2,1fr); }
+      .tool-card.featured { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .tools-row-3, .tools-row-4, .tools-row-2 { grid-template-columns: 1fr; }
+      .tool-card.featured { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+<div id="cursor"></div>
+<div class="terminal-bg"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Muntaka Maliha Rahman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="tools.html" class="active">Tools</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <span class="page-tag">🔧 My Toolkit</span>
+  <h1 class="page-h1">Tools I <em>Wield</em></h1>
+  <p class="page-sub">The instruments of my trade — from OS-level attack platforms to protocol analyzers, scripting languages, and specialized security suites.</p>
+</div>
+
+<!-- Marquee strip -->
+<div class="marquee-section">
+  <div class="marquee-track fwd" id="m1"></div>
+  <div class="marquee-track rev" id="m2"></div>
+</div>
+
+<!-- Tools Grid -->
+<div class="tools-section">
+  <div class="tools-inner">
+
+    <div class="cat-label">Operating Systems & Platforms</div>
+    <div class="tools-row tools-row-3">
+      <div class="tool-card featured reveal">
+        <div class="tc-top"><div class="tc-icon">🐉</div><span class="tc-level adv">Advanced</span></div>
+        <div class="tc-name">Kali Linux</div>
+        <div class="tc-cat">Penetration Testing OS</div>
+        <div class="tc-desc">Primary OS for all offensive security work. Used daily for reconnaissance, exploitation, post-exploitation, and CTF challenges. Familiar with its full suite of pre-installed tools.</div>
+        <div class="terminal">
+          <div><span class="prompt">┌──(kali㉿kali)-[~]</span></div>
+          <div><span class="prompt">└─$ </span><span class="cmd">nmap -sV -sC target.host</span></div>
+          <div><span class="out">Starting Nmap 7.94 scan...</span></div>
+        </div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🐧</div><span class="tc-level adv">Advanced</span></div>
+        <div class="tc-name">Linux CLI</div>
+        <div class="tc-cat">Command Line Interface</div>
+        <div class="tc-desc">Comfortable with file systems, permissions, process management, networking commands, and building complex pipelines in the shell.</div>
+        <span class="tc-use">Daily Driver</span>
+      </div>
+    </div>
+
+    <div class="cat-label">Network Analysis</div>
+    <div class="tools-row tools-row-3">
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">📡</div><span class="tc-level adv">Proficient</span></div>
+        <div class="tc-name">Wireshark</div>
+        <div class="tc-cat">Packet Analyzer</div>
+        <div class="tc-desc">Deep packet inspection, protocol dissection, traffic capture and analysis. Used to identify malicious traffic and debug network issues.</div>
+        <span class="tc-use">Traffic Analysis</span>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🗺</div><span class="tc-level adv">Proficient</span></div>
+        <div class="tc-name">Nmap</div>
+        <div class="tc-cat">Network Scanner</div>
+        <div class="tc-desc">Host discovery, port scanning, service/version detection, and OS fingerprinting. Core tool in every reconnaissance phase.</div>
+        <span class="tc-use">Recon & Enumeration</span>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🌐</div><span class="tc-level dev">Developing</span></div>
+        <div class="tc-name">Netcat</div>
+        <div class="tc-cat">Network Utility</div>
+        <div class="tc-desc">TCP/UDP connections, port listening, file transfers, and reverse shell setups. The Swiss army knife of networking.</div>
+        <span class="tc-use">Shell & Transfer</span>
+      </div>
+    </div>
+
+    <div class="cat-label">Exploitation & Web Security</div>
+    <div class="tools-row tools-row-2">
+      <div class="tool-card featured reveal">
+        <div class="tc-top"><div class="tc-icon">💣</div><span class="tc-level adv">Proficient</span></div>
+        <div class="tc-name">Metasploit Framework</div>
+        <div class="tc-cat">Exploitation Framework</div>
+        <div class="tc-desc">The industry-standard exploitation platform. Used for vulnerability scanning, exploit selection, payload generation, and post-exploitation in authorized lab environments and CTFs.</div>
+        <div class="terminal">
+          <div><span class="prompt">msf6 &gt; </span><span class="cmd">use exploit/multi/handler</span></div>
+          <div><span class="prompt">msf6 &gt; </span><span class="cmd">set payload windows/meterpreter/reverse_tcp</span></div>
+          <div><span class="out">[*] Started reverse TCP handler...</span></div>
+        </div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🕷</div><span class="tc-level adv">Proficient</span></div>
+        <div class="tc-name">Burp Suite</div>
+        <div class="tc-cat">Web Security Testing</div>
+        <div class="tc-desc">Intercepting proxies, web traffic manipulation, vulnerability scanning, and manual testing for OWASP Top 10 flaws in web applications.</div>
+        <span class="tc-use">Web Pen Testing</span>
+      </div>
+    </div>
+
+    <div class="cat-label">Scripting & Automation</div>
+    <div class="tools-row tools-row-3">
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🐍</div><span class="tc-level adv">Proficient</span></div>
+        <div class="tc-name">Python</div>
+        <div class="tc-cat">Scripting Language</div>
+        <div class="tc-desc">Custom security tools, automated scanners, exploit scripts, and data analysis. Using libraries like socket, scapy, and requests for security tasks.</div>
+        <span class="tc-use">Automation & Tools</span>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">💠</div><span class="tc-level prof">Developing</span></div>
+        <div class="tc-name">Bash</div>
+        <div class="tc-cat">Shell Scripting</div>
+        <div class="tc-desc">Security workflow automation, log parsing, enumeration scripts, and gluing together multiple tools into efficient pipelines.</div>
+        <span class="tc-use">Workflow Scripting</span>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🔍</div><span class="tc-level dev">Developing</span></div>
+        <div class="tc-name">Gobuster</div>
+        <div class="tc-cat">Directory Brute-forcer</div>
+        <div class="tc-desc">DNS and directory/file brute-forcing to discover hidden resources on web servers during penetration testing engagements.</div>
+        <span class="tc-use">Web Enumeration</span>
+      </div>
+    </div>
+
+    <div class="cat-label">Wireless & Cryptography</div>
+    <div class="tools-row tools-row-4">
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">⚡</div><span class="tc-level dev">Developing</span></div>
+        <div class="tc-name">Aircrack-ng</div>
+        <div class="tc-cat">Wireless Security</div>
+        <div class="tc-desc">Wireless network analysis, packet capture, and WEP/WPA key cracking in authorized environments.</div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🔒</div><span class="tc-level dev">Developing</span></div>
+        <div class="tc-name">OpenSSL</div>
+        <div class="tc-cat">Cryptography Toolkit</div>
+        <div class="tc-desc">Implementing TLS/SSL, generating keys and certificates, and testing cryptographic configurations.</div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🛡</div><span class="tc-level dev">Developing</span></div>
+        <div class="tc-name">Snort / IDS</div>
+        <div class="tc-cat">Intrusion Detection</div>
+        <div class="tc-desc">Network intrusion detection and prevention, rule writing, and traffic alerting for anomaly identification.</div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tc-top"><div class="tc-icon">🎯</div><span class="tc-level prof">Proficient</span></div>
+        <div class="tc-name">TryHackMe</div>
+        <div class="tc-cat">Learning Platform</div>
+        <div class="tc-desc">Active learner with 2 Advent of Cyber completions. Primary platform for hands-on security training and CTF practice.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Muntaka Maliha Rahman</div>
+  <ul class="footer-nav">
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certs</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 · BSc CySE · Bangladesh</div>
+</footer>
+
+<script>
+  const cur = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+  document.querySelectorAll('a,button,.tool-card').forEach(el => {
+    el.addEventListener('mouseenter',()=>cur.classList.add('hovered'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('hovered'));
+  });
+
+  // Marquee pills
+  const tools1 = ['🐉 Kali Linux','📡 Wireshark','🗺 Nmap','🕷 Burp Suite','💣 Metasploit','🐍 Python','💠 Bash','🔒 OpenSSL','⚡ Aircrack-ng','🌐 Netcat','🔍 Gobuster','🛡 Snort'];
+  const tools2 = ['🎯 Pen Testing','🔐 Network Security','📊 Risk Assessment','🚩 CTF Challenges','🌐 Web App Security','🔬 Digital Forensics','🐧 Linux','⚙️ Automation','🔑 Cryptography'];
+
+  function buildTrack(id, arr) {
+    const track = document.getElementById(id);
+    const double = [...arr,...arr];
+    double.forEach(t => {
+      const p = document.createElement('div');
+      p.className = 'm-pill';
+      p.innerHTML = `<span class="m-dot"></span>${t}`;
+      track.appendChild(p);
+    });
+  }
+  buildTrack('m1', tools1);
+  buildTrack('m2', tools2);
+
+  const obs = new IntersectionObserver(en => en.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

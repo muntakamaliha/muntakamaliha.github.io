@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Muntaka Maliha Rahman</title>
+  <meta name="description" content="Contact Muntaka Maliha Rahman – open to cybersecurity internships, project collaborations, and professional connections in Bangladesh and globally." />
+  <meta name="keywords" content="Muntaka Maliha Rahman contact, cybersecurity internship Bangladesh, hire cybersecurity student, collaboration cybersecurity" />
+  <meta name="author" content="Muntaka Maliha Rahman" /><meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* Big rose gradient hero area */
+    .contact-hero {
+      min-height: 42vh;
+      background: linear-gradient(140deg, var(--ink) 0%, #2d0c1e 60%, #1a0a12 100%);
+      display: flex; align-items: flex-end;
+      padding: 9rem 5vw 4rem;
+      position: relative; overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(233,30,140,.12) 0%, transparent 70%);
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: 10%;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,143,177,.08) 0%, transparent 70%);
+    }
+    .ch-inner { max-width: 1120px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+    .ch-tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rose); background: rgba(244,143,177,.12); border: 1px solid rgba(244,143,177,.25); padding: .3rem .85rem; border-radius: 2rem; display: inline-block; margin-bottom: 1.5rem; animation: fadeUp .7s ease both; }
+    .ch-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 300; color: #fff; line-height: 1.04; animation: fadeUp .8s .1s ease both; }
+    .ch-title em { color: var(--petal); font-style: italic; }
+
+    /* ── MAIN CONTACT SECTION ── */
+    .contact-main { position: relative; z-index: 1; }
+    .contact-grid {
+      max-width: 1120px; margin: 0 auto;
+      padding: 4rem 5vw 6rem;
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem;
+      align-items: start;
+    }
+
+    /* Left side info */
+    .contact-info { position: sticky; top: 7rem; }
+    .ci-intro {
+      font-family: var(--serif); font-size: 1.12rem; line-height: 1.82; color: var(--muted); margin-bottom: 2.5rem;
+    }
+
+    .ci-items { display: flex; flex-direction: column; gap: 1rem; }
+    .ci-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--card); border: 1px solid var(--petal);
+      border-radius: 14px; transition: transform .2s, box-shadow .2s;
+    }
+    .ci-item:hover { transform: translateX(4px); box-shadow: var(--shadow-sm); }
+    .ci-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--petal), var(--rose));
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .ci-text { flex: 1; }
+    .ci-label { font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); margin-bottom: .2rem; }
+    .ci-val { font-family: var(--serif); font-size: 1rem; color: var(--ink); }
+
+    /* Available badge */
+    .avail-badge {
+      display: flex; align-items: center; gap: .7rem;
+      background: rgba(34, 197, 94, .08); border: 1px solid rgba(34,197,94,.25);
+      border-radius: 3rem; padding: .6rem 1.2rem;
+      margin-top: 1.8rem; display: inline-flex;
+    }
+    .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.2); animation: pulse-green 2s ease-in-out infinite; }
+    @keyframes pulse-green { 0%,100%{box-shadow: 0 0 0 3px rgba(34,197,94,.2)} 50%{box-shadow: 0 0 0 6px rgba(34,197,94,.05)} }
+    .avail-text { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: #16a34a; }
+
+    /* ── FORM ── */
+    .contact-form { background: var(--card); border: 1px solid var(--petal); border-radius: 24px; padding: 2.8rem; }
+    .form-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink); margin-bottom: .4rem; }
+    .form-sub { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; color: var(--muted); margin-bottom: 2rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg { display: flex; flex-direction: column; gap: .45rem; margin-bottom: 1.1rem; }
+    .fg label { font-family: var(--mono); font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+    .fg input, .fg textarea, .fg select {
+      font-family: var(--serif); font-size: 1rem;
+      background: var(--surface); border: 1.5px solid var(--petal);
+      border-radius: 10px; padding: .8rem 1rem; color: var(--ink);
+      outline: none; transition: border-color .2s, box-shadow .2s; resize: none;
+      appearance: none;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(107,58,82,.4); }
+    .fg input:focus, .fg textarea:focus, .fg select:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(244,143,177,.15);
+    }
+    .fg textarea { min-height: 110px; }
+    .fg select { cursor: none; }
+
+    .form-submit { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: .5rem; }
+    .btn-submit {
+      font-family: var(--mono); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase;
+      padding: 1rem 2.2rem; border-radius: 3rem;
+      background: linear-gradient(90deg, var(--rose), var(--deep-rose));
+      color: #fff; border: none; cursor: none;
+      box-shadow: 0 6px 28px rgba(233,30,140,.28);
+      transition: all .25s ease;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(233,30,140,.38); }
+    .form-note { font-family: var(--mono); font-size: .62rem; letter-spacing: .05em; color: rgba(107,58,82,.6); }
+
+    /* Success state */
+    .success-msg {
+      display: none; text-align: center; padding: 2rem;
+    }
+    .success-msg .s-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-msg .s-title { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); margin-bottom: .5rem; }
+    .success-msg .s-sub { font-family: var(--serif); font-size: 1rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-info { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Muntaka Maliha Rahman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Contact Hero -->
+<div class="contact-hero">
+  <div class="ch-inner">
+    <span class="ch-tag">✉️ Let's Connect</span>
+    <h1 class="ch-title">Open to<br><em>opportunities</em><br>&amp; collaborations</h1>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="contact-main">
+  <div class="contact-grid">
+
+    <!-- Left info -->
+    <div class="contact-info reveal">
+      <p class="ci-intro">Whether you're looking for a driven cybersecurity intern, want to collaborate on a security project, or simply want to talk about the digital threat landscape — I'd love to hear from you.</p>
+
+      <div class="ci-items">
+        <div class="ci-item">
+          <div class="ci-icon">🎓</div>
+          <div class="ci-text">
+            <div class="ci-label">Education</div>
+            <div class="ci-val">BSc CySE · University of Frontier Technology,Bangladesh</div>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">
+            <div class="ci-label">Location</div>
+            <div class="ci-val">Bangladesh 🇧🇩 (Remote Available)</div>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">🏆</div>
+          <div class="ci-text">
+            <div class="ci-label">Platforms</div>
+            <div class="ci-val">TryHackMe · MuktoPaath</div>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">💼</div>
+          <div class="ci-text">
+            <div class="ci-label">Open To</div>
+            <div class="ci-val">Internships, Projects, Collaborations</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="avail-badge">
+        <div class="avail-dot"></div>
+        <span class="avail-text">Available for Opportunities</span>
+      </div>
+
+      <!-- Social Links -->
+<div class="social-links">
+  <a href="https://www.linkedin.com/in/muntaka-maliha-rahman-036a74329/" target="_blank">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+  <a href="https://github.com/muntakamaliha" target="_blank">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <a href="https://www.instagram.com/muntakamaliha" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/muha.moni" target="_blank">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+  <a href="mailto:2304009@uftb.ac.bd">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+</div>
+    </div>
+  
+    <!-- Right form -->
+    <div class="contact-form reveal" id="formBox">
+      <div id="formContent">
+        <div class="form-title">Send a Message</div>
+        <div class="form-sub">I'll respond as soon as possible ✦</div>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg">
+              <label>First Name</label>
+              <input type="text" placeholder="Jane" required />
+            </div>
+            <div class="fg">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="fg">
+            <label>Subject</label>
+            <select>
+              <option value="">Select a topic…</option>
+              <option>Internship Opportunity</option>
+              <option>Project Collaboration</option>
+              <option>Security Consultation</option>
+              <option>Professional Networking</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Message</label>
+            <textarea placeholder="I'd love to collaborate on…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">Send Message →</button>
+            <span class="form-note">I aim to respond within 24 hours.</span>
+          </div>
+        </form>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        <div class="s-icon">💌</div>
+        <div class="s-title">Message Sent!</div>
+        <div class="s-sub">Thank you for reaching out. I'll get back to you as soon as possible.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Muntaka Maliha Rahman</div>
+  <ul class="footer-nav">
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certs</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 · BSc CySE · Bangladesh</div>
+</footer>
+
+<script>
+  const cur = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+  document.querySelectorAll('a,button,.ci-item,.contact-form').forEach(el => {
+    el.addEventListener('mouseenter',()=>cur.classList.add('hovered'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('hovered'));
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+
+  const obs = new IntersectionObserver(en => en.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

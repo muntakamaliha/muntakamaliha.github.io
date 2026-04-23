@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Muntaka Maliha Rahman</title>
+  <meta name="description" content="Licenses and certifications of Muntaka Maliha Rahman – TryHackMe Advent of Cyber 2022 & 2024, MuktoPaath Batch-1, and more cybersecurity credentials." />
+  <meta name="keywords" content="Muntaka Maliha Rahman certifications, TryHackMe certificate, MuktoPaath certificate, cybersecurity credentials Bangladesh" />
+  <meta name="author" content="Muntaka Maliha Rahman" /><meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* Background pattern */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 40px,
+        rgba(244,143,177,.04) 40px, rgba(244,143,177,.04) 41px
+      ), repeating-linear-gradient(
+        90deg, transparent, transparent 40px,
+        rgba(244,143,177,.04) 40px, rgba(244,143,177,.04) 41px
+      );
+    }
+
+    /* ── CERT CARDS ── */
+    .certs-section { position: relative; z-index: 1; }
+    .certs-grid {
+      max-width: 1120px; margin: 0 auto;
+      padding: 0 5vw 6rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
+      gap: 1.8rem;
+    }
+
+    .cert-card {
+      background: var(--card); border: 1px solid var(--petal);
+      border-radius: 24px; padding: 0; overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease;
+      position: relative;
+    }
+    .cert-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(233,30,140,.15); }
+
+    /* Top ribbon */
+    .cert-ribbon {
+      height: 5px;
+      background: linear-gradient(90deg, var(--rose), var(--deep-rose));
+    }
+    .cert-ribbon.muktopaat { background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e); }
+    .cert-ribbon.tryhackme { background: linear-gradient(90deg, #e91e8c, #c2185b); }
+
+    .cert-body { padding: 2rem 2.2rem; }
+
+    .cert-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem; }
+
+    .cert-issuer-row { display: flex; align-items: center; gap: .7rem; }
+    .cert-issuer-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; background: var(--blush);
+      border: 1px solid var(--petal); flex-shrink: 0;
+    }
+    .cert-issuer-name { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); }
+    .cert-year { font-family: var(--mono); font-size: .7rem; color: var(--rose); background: rgba(244,143,177,.12); border: 1px solid var(--petal); padding: .25rem .65rem; border-radius: 2rem; }
+
+    .cert-name { font-family: var(--sans); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: .5rem; line-height: 1.25; }
+    .cert-date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; color: var(--muted); margin-bottom: 1rem; }
+    .cert-desc { font-family: var(--serif); font-size: .97rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.2rem; }
+
+    .cert-id-row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .cert-id-label { font-family: var(--mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(107,58,82,.5); }
+    .cert-id {
+      font-family: var(--mono); font-size: .7rem; letter-spacing: .05em;
+      color: var(--deep-rose); background: rgba(233,30,140,.07);
+      border: 1px solid rgba(233,30,140,.2); border-radius: .4rem;
+      padding: .2rem .65rem;
+    }
+
+    /* Verify button */
+    .cert-verify {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: var(--mono); font-size: .65rem; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--deep-rose); margin-top: 1rem;
+      transition: gap .2s;
+    }
+    .cert-verify:hover { gap: .7rem; }
+    .cert-verify .arrow { transition: transform .2s; }
+    .cert-verify:hover .arrow { transform: translateX(3px); }
+
+    /* In-progress / placeholder */
+    .cert-card.placeholder {
+      border-style: dashed; background: transparent;
+    }
+    .cert-card.placeholder .cert-body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 220px; text-align: center; gap: .8rem; }
+    .placeholder-icon { font-size: 2.5rem; opacity: .4; }
+    .placeholder-text { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--muted); opacity: .7; }
+    .placeholder-badge { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); background: rgba(244,143,177,.12); border: 1px solid var(--petal); padding: .3rem .8rem; border-radius: 2rem; }
+
+    /* Stats banner */
+    .cert-stats-banner {
+      position: relative; z-index: 1;
+      background: linear-gradient(135deg, var(--ink), #2d0c1e);
+      padding: 3.5rem 5vw; margin-bottom: 0;
+    }
+    .csb-inner { max-width: 1120px; margin: 0 auto; display: flex; gap: 3rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .csb-text { flex: 1; }
+    .csb-title { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 300; color: #fff; margin-bottom: .5rem; }
+    .csb-title em { color: var(--petal); font-style: italic; }
+    .csb-sub { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,.5); }
+    .csb-nums { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .csb-num { text-align: center; }
+    .csb-n { font-family: var(--serif); font-size: 2.8rem; font-weight: 600; color: var(--rose); line-height: 1; }
+    .csb-l { font-family: var(--mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: .3rem; }
+
+    @media (max-width: 600px) { .certs-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Muntaka Maliha Rahman</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html" class="active">Certifications</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <span class="page-tag">🏆 Credentials & Licenses</span>
+  <h1 class="page-h1">My <em>Certifications</em></h1>
+  <p class="page-sub">Verified credentials from cybersecurity platforms and learning programs — each one a milestone in continuous growth.</p>
+</div>
+
+<!-- Stats Banner -->
+<div class="cert-stats-banner">
+  <div class="csb-inner">
+    <div class="csb-text">
+      <div class="csb-title">Constantly <em>learning,</em><br>constantly growing.</div>
+      <div class="csb-sub">Each certification represents real-world skills and practical challenges completed.</div>
+    </div>
+    <div class="csb-nums">
+      <div class="csb-num"><div class="csb-n">3+</div><div class="csb-l">Certifications</div></div>
+      <div class="csb-num"><div class="csb-n">2</div><div class="csb-l">Platforms</div></div>
+      <div class="csb-num"><div class="csb-n">2025</div><div class="csb-l">Active Year</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Cert Grid -->
+<div class="certs-section" style="padding-top:3rem;">
+  <div class="certs-grid">
+
+    <!-- MuktoPaath -->
+    <div class="cert-card reveal">
+      <div class="cert-ribbon muktopaat"></div>
+      <div class="cert-body">
+        <div class="cert-header">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-icon">📘</div>
+            <div class="cert-issuer-name">MuktoPaath</div>
+          </div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-name">Batch-1 Certificate</div>
+        <div class="cert-date">📅 Issued May 2025</div>
+        <div class="cert-desc">Completed the first batch of MuktoPaath's structured cybersecurity curriculum, covering foundational to intermediate security concepts.</div>
+        <div class="cert-id-row">
+          <span class="cert-id-label">Credential ID</span>
+          <span class="cert-id">MC-E1S9115272R1852R</span>
+        </div>
+        <a href="https://certificate.muktopaath.gov.bd/storage/uploads/certificates/5543a0c47dc58a416d8eb941f8a872a4.jpg"
+   class="cert-verify"
+   target="_blank"
+   rel="noopener noreferrer">
+  Verify Credential <span class="arrow">→</span>
+</a>
+      </div>
+    </div>
+
+    <!-- TryHackMe 2022 -->
+    <div class="cert-card reveal">
+      <div class="cert-ribbon tryhackme"></div>
+      <div class="cert-body">
+        <div class="cert-header">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-icon">🎯</div>
+            <div class="cert-issuer-name">TryHackMe</div>
+          </div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-name">Advent of Cyber 2022</div>
+        <div class="cert-date">📅 Issued May 2025</div>
+        <div class="cert-desc">Completed the TryHackMe Advent of Cyber 2022 challenge — 24 days of beginner-friendly cybersecurity tasks covering web exploitation, networking, OSINT, and more.</div>
+        <div class="cert-id-row">
+          <span class="cert-id-label">Credential ID</span>
+          <span class="cert-id">THM-LJMYEPM0C8</span>
+        </div>
+        <a href="https://tryhackme.com/certificate/THM-LJMYEPM0C8" target="_blank" class="cert-verify">Verify on TryHackMe <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- TryHackMe 2024 -->
+    <div class="cert-card reveal">
+      <div class="cert-ribbon tryhackme"></div>
+      <div class="cert-body">
+        <div class="cert-header">
+          <div class="cert-issuer-row">
+            <div class="cert-issuer-icon">🎯</div>
+            <div class="cert-issuer-name">TryHackMe</div>
+          </div>
+          <span class="cert-year">2025</span>
+        </div>
+        <div class="cert-name">Advent of Cyber 2024</div>
+        <div class="cert-date">📅 Issued May 2025</div>
+        <div class="cert-desc">Completed the TryHackMe Advent of Cyber 2024 challenge — the most advanced edition yet, featuring AI security, cloud threats, SIEM analysis, and modern attack vectors.</div>
+        <div class="cert-id-row">
+          <span class="cert-id-label">Credential ID</span>
+          <span class="cert-id">THM-QC4XNDVJ7G</span>
+        </div>
+        <a href="https://tryhackme.com/certificate/THM-QC4XNDVJ7G" target="_blank" class="cert-verify">Verify on TryHackMe <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- Coming soon placeholder -->
+    <div class="cert-card placeholder reveal">
+      <div class="cert-ribbon" style="background: linear-gradient(90deg,var(--petal),var(--blush));"></div>
+      <div class="cert-body">
+        <div class="placeholder-icon">✦</div>
+        <div class="placeholder-badge">More Credentials</div>
+        <div class="placeholder-text">Actively pursuing additional certifications in cybersecurity platforms and industry programs. Stay tuned!</div>
+        <a href="contact.html" class="btn btn-outline" style="margin-top:.5rem;font-size:.65rem;padding:.6rem 1.3rem;">Connect With Me</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Muntaka Maliha Rahman</div>
+  <ul class="footer-nav">
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certs</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 · BSc CySE · Bangladesh</div>
+</footer>
+
+<script>
+  const cur = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+  document.querySelectorAll('a,button,.cert-card').forEach(el => {
+    el.addEventListener('mouseenter',()=>cur.classList.add('hovered'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('hovered'));
+  });
+  const obs = new IntersectionObserver(en => en.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
